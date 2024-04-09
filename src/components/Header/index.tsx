@@ -3,9 +3,9 @@ import styles from "./Header.module.scss";
 
 interface HeaderProps {
   titulo: string;
-  descricao: string;
+  descricao?: string;
   classname?: string;
-  imagem: string;
+  imagem?: string;
 }
 
 export default function Header({

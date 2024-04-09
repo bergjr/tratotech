@@ -21,7 +21,7 @@ const iconProps = {
       </div>
       <div className={styles.links}>
         <div>
-          <a href="" className={classNames(styles.link, {
+          <a href="/aasdasds" className={classNames(styles.link, {
             [styles.selected]: window.location.pathname === '/'
           })}>Pagina Inicial</a>
         </div>
@@ -30,7 +30,7 @@ const iconProps = {
           <Busca />
       </div>
       <div className={styles.icones}>
-          <a href="">
+          <a href="/asdasd">
             { window.location.pathname === '/carrinho'
             ? <RiShoppingCartFill {...iconProps} />
             : <RiShoppingCart2Line {...iconProps} /> }

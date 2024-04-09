@@ -5,6 +5,14 @@ import relogio from "assets/inicial.png";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+type Categoria = {
+  nome: string,
+  thumbnail: string,
+  header: string,
+  id: string,
+  descricao: string,
+}
+
 export default function Home() {
 
   const navigate = useNavigate();
@@ -25,8 +33,8 @@ export default function Home() {
           </h1>
         </div>
         <div className={styles['categorias-container']}>
-          {categorias.map((categoria: any, index: number) => (
-            <div key={index} onClick={() => navigate(`categoria/${categoria.id}`)}>
+          {categorias.map((categoria: Categoria, index: number) => (
+            <div key={index} onClick={() => navigate(`/categoria/${categoria.id}`)}>
               <img src={categoria.thumbnail} alt={categoria.nome} />
               <h1>{categoria.nome}</h1>
             </div>
