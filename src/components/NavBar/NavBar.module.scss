@@ -46,6 +46,11 @@
 .link {
   color: white;
   font-size: 22px;
+  text-decoration: none;
+  &--selected {
+    // font-weight: bold;
+    text-decoration: underline;
+  }
 }
 
 .busca {
@@ -55,10 +60,7 @@
   width: 100%;
 }
 
-.selected {
-  font-weight: bold;
-  text-decoration: underline;
-}
+
 
 .icones {
   display: flex;

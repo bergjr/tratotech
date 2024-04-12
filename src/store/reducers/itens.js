@@ -26,6 +26,8 @@ import caixaSomBluetooth from 'assets/itens/caixa-som-bluetooth.png';
 import miniSystem from 'assets/itens/mini-system.png';
 import tablet from 'assets/itens/tablet.png';
 
+
+
 const initialState =[{
   titulo: 'Assistente virtual',
   descricao: 'Conheça nosso smart speaker de maior sucesso ainda melhor. O novo design de áudio com direcionamento frontal (1 speaker de 1,6") garante mais graves e um som completo.',
@@ -231,7 +233,18 @@ const initialState =[{
 
 const itensSlice = createSlice({
   name: 'itens',
-  initialState
+  initialState,
+  reducers: {
+    mudarFavorito: (state, params) => {
+      state.map(item => {
+        if(item.id === params.payload) {
+          item.favorito = !item.favorito
+        }
+        return item;
+      })
+    }
+  }
 })
 
+export const { mudarFavorito } = itensSlice.actions
 export default itensSlice.reducer

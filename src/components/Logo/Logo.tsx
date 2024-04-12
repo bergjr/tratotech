@@ -1,8 +1,11 @@
-import React from 'react'
-import logo from 'assets/logo.png'
+import React from "react";
+import logo from "assets/logo.png";
+import { Link } from "react-router-dom";
 
 export default function Logo() {
   return (
-    <img title='TratoTech Logo' src={logo} alt='' />
-  )
+    <Link to='/'>
+      <img title="TratoTech Logo" src={logo} alt="" />
+    </Link>
+  );
 }
