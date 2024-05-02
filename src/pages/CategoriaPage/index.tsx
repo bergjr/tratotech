@@ -1,13 +1,14 @@
 import Header from "components/Header";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import styles from './Categoria.module.scss'
+import styles from "./Categoria.module.scss";
 import Item from "components/Item";
-import { Categoria, Item as ItemType} from 'common/types'
+import { Categoria, Item as ItemType } from "common/types";
 
 export default function CategoriaPage() {
   const { nomeCategoria } = useParams();
-
+  const busca = useSelector((state: any) => state.busca)
+  const regexp = new RegExp(busca, 'i')
   // const { categoria, itens } = useSelector((state: any) => {
   //   return {
   //     categoria: state.categorias.find(
@@ -24,7 +25,7 @@ export default function CategoriaPage() {
   );
 
   const itens = useSelector((state: any) =>
-    state.itens.filter((item: any) => item.categoria === nomeCategoria)
+    state.itens.filter((item: any) => item.categoria === nomeCategoria && item.titulo.match(regexp))
   );
 
   return (
@@ -37,9 +38,7 @@ export default function CategoriaPage() {
       />
       <div className={styles.itens}>
         {itens?.map((item: ItemType) => {
-          return (
-            <Item key={item.id} {...item} />
-          )
+          return <Item key={item.id} {...item} />;
         })}
       </div>
     </>

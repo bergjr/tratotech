@@ -1,6 +1,9 @@
 import React from "react";
 import styles from "./Header.module.scss";
 import classNames from "classnames";
+import TituloComImagem from "./TituloComImagem";
+import TituloSemImagem from "./TituloSemImagem";
+
 interface HeaderProps {
   titulo: string;
   descricao?: string;
@@ -9,20 +12,26 @@ interface HeaderProps {
 }
 
 export default function Header({
-  titulo,
+  titulo = '',
   descricao,
   classname,
   imagem,
 }: HeaderProps) {
   return (
-    <header className={classNames(styles['header'],  {[styles['header--smaller']]: classname === 'smaller'} )}>
-      <div className={styles["header-texto"]}>
-        <h1>{titulo}</h1>
-        <h2>{descricao}</h2>
-      </div>
-      <div className={styles["header-imagem"]}>
-        <img src={imagem} alt={titulo} />
-      </div>
+    <header className={classNames(styles.header, {[styles['header--smaller']]: classname})}>
+      {imagem ? (
+        <TituloComImagem
+          titulo={titulo}
+          descricao={descricao}
+          imagem={imagem}
+          classname='smaller'
+        />
+      ) : (
+        <TituloSemImagem
+          titulo={titulo}
+          descricao={descricao}
+        />
+      )}
     </header>
   );
 }

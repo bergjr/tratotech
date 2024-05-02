@@ -36,13 +36,13 @@ export default function NavBar() {
         <Busca />
       </div>
       <div className={styles.icones}>
-        <a href="/asdasd">
+        <Link to="/carrinho">
           {window.location.pathname === "/carrinho" ? (
             <RiShoppingCartFill {...iconProps} />
           ) : (
             <RiShoppingCart2Line {...iconProps} />
           )}
-        </a>
+        </Link>
       </div>
     </nav>
   );
